@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+h1 {
+  font-family: 'Nerko One', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
