@@ -12,18 +12,31 @@ const Amphi = ({ amphi }: Props) => {
   const position = [amphi.lat, amphi.lon] as LatLngTuple
 
   return (
-    <>
-      <h1>{amphi.name}</h1>
-      <MapContainer center={position} zoom={18} style={{ height: 320 }}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-          <Popup>Nom: {amphi.name}</Popup>
-        </Marker>
-      </MapContainer>
-    </>
+    <div className="flex flex-col gap-4">
+      <section>
+        <h1 className="mt-4 text-4xl ">{amphi.name}</h1>
+        <h3 className="font-light">{amphi.school.name}</h3>
+      </section>
+      <section>
+        <h2>A propos</h2>
+        <p className="font-medium">{amphi.description}</p>
+      </section>
+      <section>
+        <h2>S&apos;y rendre</h2>
+        <MapContainer center={position} zoom={18} style={{ height: 320 }}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={position}>
+            <Popup>Nom: {amphi.name}</Popup>
+          </Marker>
+        </MapContainer>
+        <button className="btn btn-primary w-full">
+          Ouvrir dans Google Maps
+        </button>
+      </section>
+    </div>
   )
 }
 

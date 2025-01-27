@@ -5,6 +5,7 @@ export const schema = gql`
     lat: Float!
     lon: Float!
     seats: Int!
+    description: String!
     schoolId: Int!
     school: School!
   }
@@ -18,6 +19,7 @@ export const schema = gql`
     name: String!
     lat: Float!
     lon: Float!
+    description: String
     seats: Int!
     schoolId: Int!
   }
@@ -27,6 +29,7 @@ export const schema = gql`
     lat: Float
     lon: Float
     seats: Int
+    description: String
     schoolId: Int
   }
 

@@ -23,6 +23,7 @@ export const QUERY: TypedDocumentNode<EditAmphiById> = gql`
       lat
       lon
       seats
+      description
       schoolId
     }
   }

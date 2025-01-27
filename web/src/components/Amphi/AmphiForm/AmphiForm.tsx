@@ -108,6 +108,21 @@ const AmphiForm = (props: AmphiFormProps) => {
         <FieldError name="seats" className="invalid-feedback" />
 
         <Label
+          name="description"
+          className="form-label"
+          errorClassName="form-label text-danger"
+        >
+          Description
+        </Label>
+
+        <TextField
+          name="description"
+          defaultValue={props.amphi?.description}
+          className="form-control"
+          errorClassName="form-control is-invalid"
+        />
+
+        <Label
           name="schoolId"
           className="form-label"
           errorClassName="form-label text-danger"

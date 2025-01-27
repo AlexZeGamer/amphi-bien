@@ -19,7 +19,7 @@ const App = ({ children }: AppProps) => (
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <RedwoodApolloProvider>
         <Navbar />
-        {children}
+        <div className="container">{children}</div>
       </RedwoodApolloProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
