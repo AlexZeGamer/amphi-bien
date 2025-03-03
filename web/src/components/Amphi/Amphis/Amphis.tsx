@@ -54,7 +54,7 @@ const AmphisList = ({ amphis }: FindAmphis) => {
             <th>Lat</th>
             <th>Lon</th>
             <th>Seats</th>
-            <th>School id</th>
+            <th>University id</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -66,7 +66,7 @@ const AmphisList = ({ amphis }: FindAmphis) => {
               <td>{truncate(amphi.lat)}</td>
               <td>{truncate(amphi.lon)}</td>
               <td>{truncate(amphi.seats)}</td>
-              <td>{truncate(amphi.schoolId)}</td>
+              <td>{truncate(amphi.universityId)}</td>
               <td>
                 <nav className="btn-group btn-group-sm">
                   <Link

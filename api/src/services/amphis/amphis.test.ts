@@ -29,7 +29,7 @@ describe('amphis', () => {
         lat: 5224245.492616564,
         lon: 5028286.494155561,
         seats: 8687999,
-        schoolId: scenario.amphi.two.schoolId,
+        universityId: scenario.amphi.two.universityId,
       },
     })
 
@@ -37,7 +37,7 @@ describe('amphis', () => {
     expect(result.lat).toEqual(5224245.492616564)
     expect(result.lon).toEqual(5028286.494155561)
     expect(result.seats).toEqual(8687999)
-    expect(result.schoolId).toEqual(scenario.amphi.two.schoolId)
+    expect(result.universityId).toEqual(scenario.amphi.two.universityId)
   })
 
   scenario('updates a amphi', async (scenario: StandardScenario) => {

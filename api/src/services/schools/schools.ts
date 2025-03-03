@@ -1,45 +1,45 @@
 import type {
   QueryResolvers,
   MutationResolvers,
-  SchoolRelationResolvers,
+  UniversityRelationResolvers,
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
 
-export const schools: QueryResolvers['schools'] = () => {
-  return db.school.findMany()
+export const universitys: QueryResolvers['universitys'] = () => {
+  return db.university.findMany()
 }
 
-export const school: QueryResolvers['school'] = ({ id }) => {
-  return db.school.findUnique({
+export const university: QueryResolvers['university'] = ({ id }) => {
+  return db.university.findUnique({
     where: { id },
   })
 }
 
-export const createSchool: MutationResolvers['createSchool'] = ({ input }) => {
-  return db.school.create({
+export const createUniversity: MutationResolvers['createUniversity'] = ({ input }) => {
+  return db.university.create({
     data: input,
   })
 }
 
-export const updateSchool: MutationResolvers['updateSchool'] = ({
+export const updateUniversity: MutationResolvers['updateUniversity'] = ({
   id,
   input,
 }) => {
-  return db.school.update({
+  return db.university.update({
     data: input,
     where: { id },
   })
 }
 
-export const deleteSchool: MutationResolvers['deleteSchool'] = ({ id }) => {
-  return db.school.delete({
+export const deleteUniversity: MutationResolvers['deleteUniversity'] = ({ id }) => {
+  return db.university.delete({
     where: { id },
   })
 }
 
-export const School: SchoolRelationResolvers = {
+export const University: UniversityRelationResolvers = {
   Amphi: (_obj, { root }) => {
-    return db.school.findUnique({ where: { id: root?.id } }).Amphi()
+    return db.university.findUnique({ where: { id: root?.id } }).Amphi()
   },
 }

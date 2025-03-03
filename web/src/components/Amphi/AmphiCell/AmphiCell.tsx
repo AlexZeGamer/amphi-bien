@@ -18,7 +18,7 @@ export const QUERY: TypedDocumentNode<FindAmphiById, FindAmphiByIdVariables> =
         lon
         seats
         description
-        school {
+        university {
           name
         }
       }

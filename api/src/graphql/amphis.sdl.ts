@@ -6,8 +6,8 @@ export const schema = gql`
     lon: Float!
     seats: Int!
     description: String!
-    schoolId: Int!
-    school: School!
+    universityId: Int!
+    university: University!
   }
 
   type Query {
@@ -21,7 +21,7 @@ export const schema = gql`
     lon: Float!
     description: String
     seats: Int!
-    schoolId: Int!
+    universityId: Int!
   }
 
   input UpdateAmphiInput {
@@ -30,7 +30,7 @@ export const schema = gql`
     lon: Float
     seats: Int
     description: String
-    schoolId: Int
+    universityId: Int
   }
 
   type Mutation {

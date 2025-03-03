@@ -123,22 +123,22 @@ const AmphiForm = (props: AmphiFormProps) => {
         />
 
         <Label
-          name="schoolId"
+          name="universityId"
           className="form-label"
           errorClassName="form-label text-danger"
         >
-          School id
+          University id
         </Label>
 
         <NumberField
-          name="schoolId"
-          defaultValue={props.amphi?.schoolId}
+          name="universityId"
+          defaultValue={props.amphi?.universityId}
           className="form-control"
           errorClassName="form-control is-invalid"
           validation={{ required: true }}
         />
 
-        <FieldError name="schoolId" className="invalid-feedback" />
+        <FieldError name="universityId" className="invalid-feedback" />
 
         <div className="mt-3">
           <Submit disabled={props.loading} className="btn btn-primary">

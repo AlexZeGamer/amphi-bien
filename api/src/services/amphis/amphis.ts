@@ -39,7 +39,7 @@ export const deleteAmphi: MutationResolvers['deleteAmphi'] = ({ id }) => {
 }
 
 export const Amphi: AmphiRelationResolvers = {
-  school: (_obj, { root }) => {
-    return db.amphi.findUnique({ where: { id: root?.id } }).school()
+  university: (_obj, { root }) => {
+    return db.amphi.findUnique({ where: { id: root?.id } }).university()
   },
 }

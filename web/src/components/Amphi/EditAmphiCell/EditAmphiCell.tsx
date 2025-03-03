@@ -24,7 +24,7 @@ export const QUERY: TypedDocumentNode<EditAmphiById> = gql`
       lon
       seats
       description
-      schoolId
+      universityId
     }
   }
 `
@@ -40,7 +40,7 @@ const UPDATE_AMPHI_MUTATION: TypedDocumentNode<
       lat
       lon
       seats
-      schoolId
+      universityId
     }
   }
 `

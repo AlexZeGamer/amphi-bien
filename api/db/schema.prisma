@@ -24,17 +24,17 @@ model User {
 }
 
 model Amphi {
-  id          Int    @id @default(autoincrement())
-  name        String @unique
-  lat         Float
-  lon         Float
-  seats       Int
-  description String @default("")
-  schoolId    Int
-  school      School @relation(fields: [schoolId], references: [id])
+  id           Int        @id @default(autoincrement())
+  name         String     @unique
+  lat          Float
+  lon          Float
+  seats        Int
+  description  String     @default("")
+  universityId Int
+  university   University @relation(fields: [universityId], references: [id])
 }
 
-model School {
+model University {
   id    Int     @id @default(autoincrement())
   name  String
   Amphi Amphi[]

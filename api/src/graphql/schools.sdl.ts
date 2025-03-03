@@ -1,26 +1,26 @@
 export const schema = gql`
-  type School {
+  type University {
     id: Int!
     name: String!
     Amphi: [Amphi]!
   }
 
   type Query {
-    schools: [School!]! @requireAuth
-    school(id: Int!): School @requireAuth
+    universitys: [University!]! @requireAuth
+    university(id: Int!): University @requireAuth
   }
 
-  input CreateSchoolInput {
+  input CreateUniversityInput {
     name: String!
   }
 
-  input UpdateSchoolInput {
+  input UpdateUniversityInput {
     name: String
   }
 
   type Mutation {
-    createSchool(input: CreateSchoolInput!): School! @requireAuth
-    updateSchool(id: Int!, input: UpdateSchoolInput!): School! @requireAuth
-    deleteSchool(id: Int!): School! @requireAuth
+    createUniversity(input: CreateUniversityInput!): University! @requireAuth
+    updateUniversity(id: Int!, input: UpdateUniversityInput!): University! @requireAuth
+    deleteUniversity(id: Int!): University! @requireAuth
   }
 `

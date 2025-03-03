@@ -17,7 +17,7 @@ export const QUERY: TypedDocumentNode<FindAmphis, FindAmphisVariables> = gql`
       lat
       lon
       seats
-      schoolId
+      universityId
     }
   }
 `

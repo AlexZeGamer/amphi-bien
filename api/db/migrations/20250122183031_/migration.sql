@@ -8,10 +8,10 @@ CREATE TABLE "new_Amphi" (
     "lon" REAL NOT NULL,
     "seats" INTEGER NOT NULL,
     "description" TEXT NOT NULL DEFAULT '',
-    "schoolId" INTEGER NOT NULL,
-    CONSTRAINT "Amphi_schoolId_fkey" FOREIGN KEY ("schoolId") REFERENCES "School" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    "universityId" INTEGER NOT NULL,
+    CONSTRAINT "Amphi_universityId_fkey" FOREIGN KEY ("universityId") REFERENCES "University" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
-INSERT INTO "new_Amphi" ("id", "lat", "lon", "name", "schoolId", "seats") SELECT "id", "lat", "lon", "name", "schoolId", "seats" FROM "Amphi";
+INSERT INTO "new_Amphi" ("id", "lat", "lon", "name", "universityId", "seats") SELECT "id", "lat", "lon", "name", "universityId", "seats" FROM "Amphi";
 DROP TABLE "Amphi";
 ALTER TABLE "new_Amphi" RENAME TO "Amphi";
 CREATE UNIQUE INDEX "Amphi_name_key" ON "Amphi"("name");

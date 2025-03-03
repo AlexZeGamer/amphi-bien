@@ -15,7 +15,7 @@ const Amphi = ({ amphi }: Props) => {
     <div className="flex flex-col gap-4">
       <section>
         <h1 className="mt-4 text-4xl ">{amphi.name}</h1>
-        <h3 className="font-light">{amphi.school.name}</h3>
+        <h3 className="font-light">{amphi.university.name}</h3>
       </section>
       <section>
         <h2>A propos</h2>
