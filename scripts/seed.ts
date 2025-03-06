@@ -288,6 +288,70 @@ export default async () => {
       },
     },
   })
+  await db.image.createMany({
+    data: [
+      {
+        url: 'https://cdn.filestackcontent.com/xA18mNg8T8m4YNdFkvw9',
+        title: 'Amphi Henri Poincaré',
+        amphiId: 1,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/ZZFSQjxmS662qZgHKObF',
+        title: 'Amphi Marie Curie',
+        amphiId: 1,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/CbVELVLzTPG7m90ZlPb7',
+        title: 'Amphi Joliot-Curie',
+        amphiId: 1,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/ZZFSQjxmS662qZgHKObF',
+        title: 'Amphi Marie Curie',
+        amphiId: 2,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/CbVELVLzTPG7m90ZlPb7',
+        title: 'Amphi Joliot-Curie',
+        amphiId: 3,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/xw5khq8QT5ZfIyQd9PGX',
+        title: 'Amphi CentraleSupélec',
+        amphiId: 4,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/xA18mNg8T8m4YNdFkvw9',
+        title: 'Amphi Jean Perrin',
+        amphiId: 5,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/xA18mNg8T8m4YNdFkvw9',
+        title: 'Grand Amphi',
+        amphiId: 6,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/ZZFSQjxmS662qZgHKObF',
+        title: 'Amphi Richelieu',
+        amphiId: 7,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/CbVELVLzTPG7m90ZlPb7',
+        title: 'Amphi Louis Weil',
+        amphiId: 8,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/xw5khq8QT5ZfIyQd9PGX',
+        title: 'Amphi Le Bel',
+        amphiId: 9,
+      },
+      {
+        url: 'https://cdn.filestackcontent.com/xA18mNg8T8m4YNdFkvw9',
+        title: 'Amphi Charles Mérieux',
+        amphiId: 10,
+      },
+    ],
+  })
 
   console.log('Seeding terminé avec succès!')
 }
