@@ -6,7 +6,7 @@ export const schema = gql`
   }
 
   type Query {
-    universitys: [University!]! @requireAuth
+    universities: [University!]! @requireAuth
     university(id: Int!): University @requireAuth
   }
 
@@ -20,7 +20,8 @@ export const schema = gql`
 
   type Mutation {
     createUniversity(input: CreateUniversityInput!): University! @requireAuth
-    updateUniversity(id: Int!, input: UpdateUniversityInput!): University! @requireAuth
+    updateUniversity(id: Int!, input: UpdateUniversityInput!): University!
+      @requireAuth
     deleteUniversity(id: Int!): University! @requireAuth
   }
 `

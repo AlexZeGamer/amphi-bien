@@ -1,15 +1,16 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Icon } from 'leaflet'
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import type { FindNearbyQuery, FindNearbyQueryVariables } from 'types/graphql'
+
+import { navigate, routes } from '@redwoodjs/router'
 
 import 'leaflet/dist/leaflet.css'
 
-import type { FindNearbyQuery, FindNearbyQueryVariables } from 'types/graphql'
-
 import type {
-  CellSuccessProps,
   CellFailureProps,
+  CellSuccessProps,
   TypedDocumentNode,
 } from '@redwoodjs/web'
 import { gql } from '@redwoodjs/web'
@@ -221,7 +222,7 @@ export const Success = ({
                     {amphi.distance.toFixed(1)} km de distance
                   </p>
                 )}
-                <div className="mt-4 flex justify-between">
+                <div className="mt-4 flex flex-wrap gap-2">
                   <a
                     href={`https://www.google.com/maps/dir/?api=1&destination=${amphi.lat},${amphi.lon}`}
                     target="_blank"
@@ -235,6 +236,12 @@ export const Success = ({
                     onClick={() => handleFocusOnMap(amphi.lat, amphi.lon)}
                   >
                     Voir sur la carte
+                  </button>
+                  <button
+                    className="rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700"
+                    onClick={() => navigate(routes.amphi({ id: amphi.id }))}
+                  >
+                    Voir détails
                   </button>
                 </div>
               </div>

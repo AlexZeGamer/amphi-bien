@@ -1,13 +1,13 @@
 import type { University } from '@prisma/client'
 
 import {
-  universitys,
+  universities,
   university,
   createUniversity,
   updateUniversity,
   deleteUniversity,
-} from './universitys'
-import type { StandardScenario } from './universitys.scenarios'
+} from './universities'
+import type { StandardScenario } from './universities.scenarios'
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float.
@@ -15,18 +15,21 @@ import type { StandardScenario } from './universitys.scenarios'
 //       https://redwoodjs.com/docs/testing#testing-services
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
-describe('universitys', () => {
-  scenario('returns all universitys', async (scenario: StandardScenario) => {
-    const result = await universitys()
+describe('universities', () => {
+  scenario('returns all universities', async (scenario: StandardScenario) => {
+    const result = await universities()
 
     expect(result.length).toEqual(Object.keys(scenario.university).length)
   })
 
-  scenario('returns a single university', async (scenario: StandardScenario) => {
-    const result = await university({ id: scenario.university.one.id })
+  scenario(
+    'returns a single university',
+    async (scenario: StandardScenario) => {
+      const result = await university({ id: scenario.university.one.id })
 
-    expect(result).toEqual(scenario.university.one)
-  })
+      expect(result).toEqual(scenario.university.one)
+    }
+  )
 
   scenario('creates a university', async () => {
     const result = await createUniversity({
@@ -37,7 +40,9 @@ describe('universitys', () => {
   })
 
   scenario('updates a university', async (scenario: StandardScenario) => {
-    const original = (await university({ id: scenario.university.one.id })) as University
+    const original = (await university({
+      id: scenario.university.one.id,
+    })) as University
     const result = await updateUniversity({
       id: original.id,
       input: { name: 'String2' },

@@ -6,7 +6,7 @@ import type {
 
 import { db } from 'src/lib/db'
 
-export const universitys: QueryResolvers['universitys'] = () => {
+export const universities: QueryResolvers['universities'] = () => {
   return db.university.findMany()
 }
 
@@ -16,7 +16,9 @@ export const university: QueryResolvers['university'] = ({ id }) => {
   })
 }
 
-export const createUniversity: MutationResolvers['createUniversity'] = ({ input }) => {
+export const createUniversity: MutationResolvers['createUniversity'] = ({
+  input,
+}) => {
   return db.university.create({
     data: input,
   })
@@ -32,7 +34,9 @@ export const updateUniversity: MutationResolvers['updateUniversity'] = ({
   })
 }
 
-export const deleteUniversity: MutationResolvers['deleteUniversity'] = ({ id }) => {
+export const deleteUniversity: MutationResolvers['deleteUniversity'] = ({
+  id,
+}) => {
   return db.university.delete({
     where: { id },
   })

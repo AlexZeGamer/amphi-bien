@@ -21,6 +21,16 @@ export const QUERY: TypedDocumentNode<FindAmphiById, FindAmphiByIdVariables> =
         university {
           name
         }
+        images {
+          title
+          url
+        }
+        features {
+          id
+          name
+          value
+          icon
+        }
       }
     }
   `

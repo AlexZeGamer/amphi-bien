@@ -17,8 +17,14 @@ export const amphi: QueryResolvers['amphi'] = ({ id }) => {
 }
 
 export const createAmphi: MutationResolvers['createAmphi'] = ({ input }) => {
+  const { images, ...rest } = input
   return db.amphi.create({
-    data: input,
+    data: {
+      ...rest,
+      images: {
+        create: images,
+      },
+    },
   })
 }
 
@@ -26,8 +32,14 @@ export const updateAmphi: MutationResolvers['updateAmphi'] = ({
   id,
   input,
 }) => {
+  const { images, ...rest } = input
   return db.amphi.update({
-    data: input,
+    data: {
+      ...rest,
+      images: {
+        create: images,
+      },
+    },
     where: { id },
   })
 }
@@ -41,5 +53,11 @@ export const deleteAmphi: MutationResolvers['deleteAmphi'] = ({ id }) => {
 export const Amphi: AmphiRelationResolvers = {
   university: (_obj, { root }) => {
     return db.amphi.findUnique({ where: { id: root?.id } }).university()
+  },
+  images: (_obj, { root }) => {
+    return db.amphi.findUnique({ where: { id: root?.id } }).images()
+  },
+  features: (_obj, { root }) => {
+    return db.amphi.findUnique({ where: { id: root?.id } }).features()
   },
 }

@@ -8,6 +8,8 @@ export const schema = gql`
     description: String!
     universityId: Int!
     university: University!
+    features: [Feature!]!
+    images: [Image!]!
   }
 
   type Query {
@@ -22,6 +24,8 @@ export const schema = gql`
     description: String
     seats: Int!
     universityId: Int!
+    images: [CreateImageInput!]
+    features: [ConnectFeatureInput!]
   }
 
   input UpdateAmphiInput {
@@ -31,6 +35,8 @@ export const schema = gql`
     seats: Int
     description: String
     universityId: Int
+    images: [CreateImageInput!]
+    features: [ConnectFeatureInput!]
   }
 
   type Mutation {

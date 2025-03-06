@@ -22,6 +22,71 @@ export default async () => {
     data: { name: 'Université de Lyon' },
   })
 
+  // Création des caractéristiques (features) pour les amphis
+  const projectorFeature = await db.feature.create({
+    data: {
+      name: 'Projecteur',
+      value: 'HDMI + VGA',
+      icon: 'bi-projector',
+    },
+  })
+
+  const wifiFeature = await db.feature.create({
+    data: {
+      name: 'WiFi',
+      value: 'Haut débit',
+      icon: 'bi-wifi',
+    },
+  })
+
+  const microphoneFeature = await db.feature.create({
+    data: {
+      name: 'Système audio',
+      value: 'Microphones sans fil',
+      icon: 'bi-mic',
+    },
+  })
+
+  const accessibilityFeature = await db.feature.create({
+    data: {
+      name: 'Accessibilité PMR',
+      value: 'Accès complet',
+      icon: 'bi-universal-access',
+    },
+  })
+
+  const recordingFeature = await db.feature.create({
+    data: {
+      name: 'Enregistrement',
+      value: 'Système intégré',
+      icon: 'bi-camera-video',
+    },
+  })
+
+  const climatisationFeature = await db.feature.create({
+    data: {
+      name: 'Climatisation',
+      value: 'Réglable',
+      icon: 'bi-thermometer-half',
+    },
+  })
+
+  const priseFeature = await db.feature.create({
+    data: {
+      name: 'Prises électriques',
+      value: 'À chaque rangée',
+      icon: 'bi-plug',
+    },
+  })
+
+  const videoConferenceFeature = await db.feature.create({
+    data: {
+      name: 'Visioconférence',
+      value: 'Équipement professionnel',
+      icon: 'bi-camera-video-fill',
+    },
+  })
+
   // Création des amphis pour Université Paris-Saclay
   await db.amphi.create({
     data: {
@@ -32,6 +97,15 @@ export default async () => {
       description:
         "Grand amphithéâtre principal situé au cœur du campus de l'Université Paris-Saclay, utilisé pour les conférences majeures et les cours de sciences fondamentales.",
       universityId: universitySaclay.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: wifiFeature.id },
+          { id: microphoneFeature.id },
+          { id: accessibilityFeature.id },
+          { id: recordingFeature.id },
+        ],
+      },
     },
   })
 
@@ -44,6 +118,14 @@ export default async () => {
       description:
         'Amphithéâtre moderne du bâtiment de physique-chimie, équipé de technologies avancées pour les démonstrations expérimentales.',
       universityId: universitySaclay.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: wifiFeature.id },
+          { id: priseFeature.id },
+          { id: climatisationFeature.id },
+        ],
+      },
     },
   })
 
@@ -56,6 +138,13 @@ export default async () => {
       description:
         "Situé dans le bâtiment des sciences de la vie, cet amphi dispose d'acoustique exceptionnelle et d'équipements multimédias modernes.",
       universityId: universitySaclay.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: microphoneFeature.id },
+          { id: recordingFeature.id },
+        ],
+      },
     },
   })
 
@@ -68,6 +157,17 @@ export default async () => {
       description:
         'Le plus grand amphithéâtre du campus, situé dans le bâtiment CentraleSupélec, utilisé pour les événements majeurs et cérémonies.',
       universityId: universitySaclay.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: wifiFeature.id },
+          { id: microphoneFeature.id },
+          { id: accessibilityFeature.id },
+          { id: videoConferenceFeature.id },
+          { id: climatisationFeature.id },
+          { id: priseFeature.id },
+        ],
+      },
     },
   })
 
@@ -80,6 +180,9 @@ export default async () => {
       description:
         'Petit amphithéâtre intimiste dédié aux séminaires et aux cours spécialisés en physique quantique.',
       universityId: universitySaclay.id,
+      features: {
+        connect: [{ id: projectorFeature.id }, { id: wifiFeature.id }],
+      },
     },
   })
 
@@ -93,6 +196,14 @@ export default async () => {
       description:
         "Amphithéâtre historique du campus Jussieu, connu pour son architecture remarquable et sa grande capacité d'accueil.",
       universityId: universitySorbonne.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: microphoneFeature.id },
+          { id: accessibilityFeature.id },
+          { id: climatisationFeature.id },
+        ],
+      },
     },
   })
 
@@ -105,6 +216,13 @@ export default async () => {
       description:
         'Situé au cœur du Quartier Latin, cet amphithéâtre de style classique accueille principalement les cours de lettres et sciences humaines.',
       universityId: universitySorbonne.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: wifiFeature.id },
+          { id: accessibilityFeature.id },
+        ],
+      },
     },
   })
 
@@ -118,6 +236,14 @@ export default async () => {
       description:
         "Amphithéâtre principal du campus scientifique de Saint-Martin-d'Hères, adapté pour les conférences internationales.",
       universityId: universityGrenoble.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: wifiFeature.id },
+          { id: videoConferenceFeature.id },
+          { id: priseFeature.id },
+        ],
+      },
     },
   })
 
@@ -130,6 +256,14 @@ export default async () => {
       description:
         "Grand amphithéâtre du campus central de Strasbourg, nommé d'après le chimiste alsacien Joseph Achille Le Bel.",
       universityId: universityStras.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: microphoneFeature.id },
+          { id: recordingFeature.id },
+          { id: climatisationFeature.id },
+        ],
+      },
     },
   })
 
@@ -142,6 +276,16 @@ export default async () => {
       description:
         "Amphithéâtre moderne du campus de la Doua, équipé pour l'enseignement des sciences et technologies avancées.",
       universityId: universityLyon.id,
+      features: {
+        connect: [
+          { id: projectorFeature.id },
+          { id: wifiFeature.id },
+          { id: videoConferenceFeature.id },
+          { id: microphoneFeature.id },
+          { id: accessibilityFeature.id },
+          { id: priseFeature.id },
+        ],
+      },
     },
   })
 

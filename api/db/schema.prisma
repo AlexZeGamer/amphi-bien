@@ -32,6 +32,16 @@ model Amphi {
   description  String     @default("")
   universityId Int
   university   University @relation(fields: [universityId], references: [id])
+  images       Image[]
+  features     Feature[]
+}
+
+model Feature {
+  id     Int     @id @default(autoincrement())
+  name   String
+  value  String?
+  icon   String
+  amphis Amphi[]
 }
 
 model University {
@@ -44,4 +54,12 @@ model Media {
   id   Int    @id @default(autoincrement())
   type String
   path String
+}
+
+model Image {
+  id      Int    @id @default(autoincrement())
+  title   String
+  url     String
+  Amphi   Amphi? @relation(fields: [amphiId], references: [id])
+  amphiId Int?
 }

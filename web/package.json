@@ -15,6 +15,7 @@
     "@redwoodjs/router": "8.4.0",
     "@redwoodjs/web": "8.4.0",
     "doodle-icons": "1.1.0",
+    "filestack-react": "^5.0.0",
     "humanize-string": "2.1.0",
     "leaflet": "^1.9.4",
     "react": "18.3.1",
