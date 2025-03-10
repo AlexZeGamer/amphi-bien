@@ -1,0 +1,179 @@
+.footer-container {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.notebook-footer {
+  background-color: #fff;
+  background-image:
+    linear-gradient(90deg, transparent 39px, #c6c6c6 39px, #c6c6c6 41px, transparent 41px),
+    linear-gradient(#e6e6e6 1px, transparent 1px);
+  background-size: 100% 30px, 100% 30px;
+  padding: 2.5rem 0;
+  position: relative;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.notebook-footer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: #faf4e1;
+  border-right: 2px solid #e2dfd4;
+  z-index: 0;
+}
+
+.footer-section {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.footer-title {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 5' fill='none' stroke='%23333' stroke-width='1'%3E%3Cpath d='M0,2.5 Q25,0 50,2.5 T100,2.5' /%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+}
+
+.handwritten-text {
+  font-family: 'Mali', cursive;
+  line-height: 1.6;
+}
+
+.footer-links, .footer-contact {
+  list-style: none;
+  padding-left: 0;
+  font-family: 'Mali', cursive;
+}
+
+.footer-links li, .footer-contact li {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.footer-links a:hover {
+  color: #155d6f;
+  text-decoration: none;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #155d6f;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact i {
+  margin-right: 10px;
+  color: #155d6f;
+  font-size: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px dashed #aaa;
+  border-radius: 50%;
+  color: #333;
+  transition: all 0.3s ease;
+  transform: rotate(-3deg);
+}
+
+.social-link:hover {
+  transform: rotate(3deg);
+  border-color: #155d6f;
+  color: #155d6f;
+}
+
+.social-link i {
+  font-size: 1.25rem;
+}
+
+.footer-divider {
+  border-top: 1px dashed #aaa;
+  margin: 1.5rem 0;
+  opacity: 0.5;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.copyright {
+  font-family: 'Mali', cursive;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.footer-note {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    margin-bottom: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  /* Add horizontal padding so text doesn't overlap with the paper margin */
+  .notebook-footer .container {
+    padding-left: 50px; /* Add enough space for the vertical paper margin */
+    padding-right: 15px;
+  }
+}

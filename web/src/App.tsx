@@ -9,6 +9,7 @@ import './bootstrap.css'
 import './scaffold.css'
 import './index.css'
 
+import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
 
 import { AuthProvider, useAuth } from './auth'

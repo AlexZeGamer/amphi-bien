@@ -1,0 +1,132 @@
+.navbar-container {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.notebook-navbar {
+  background-color: #fff;
+  background-image:
+    linear-gradient(90deg, transparent 39px, #c6c6c6 39px, #c6c6c6 41px, transparent 41px),
+    linear-gradient(#e6e6e6 1px, transparent 1px);
+  background-size: 100% 30px, 100% 30px;
+  padding: 0.75rem 0;
+  position: relative;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  min-height: 70px; /* Increased height */
+  display: flex;
+  align-items: center;
+}
+
+.notebook-navbar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: #faf4e1;
+  border-right: 2px solid #e2dfd4;
+  z-index: 0;
+}
+
+.navbar-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transform: rotate(-1deg);
+  transition: all 0.2s ease;
+}
+
+.navbar-brand:hover {
+  transform: rotate(1deg) scale(1.05);
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.navbar-title {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-link {
+  font-family: 'Mali', cursive;
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #155d6f;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #155d6f;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px dashed transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.navbar-icon:hover {
+  border-color: #155d6f;
+  background-color: rgba(21, 93, 111, 0.1);
+  transform: rotate(5deg);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .navbar-content {
+    padding-left: 50px;
+  }
+
+  .navbar-title {
+    display: none;
+  }
+}

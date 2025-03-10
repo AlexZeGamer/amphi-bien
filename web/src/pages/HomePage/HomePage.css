@@ -26,6 +26,126 @@
   z-index: 2;
 }
 
+/* Title page specific styling */
+.title-page .title-main {
+  font-size: 4rem;
+  margin-top: 2rem;
+}
+
+.title-page .subtitle {
+  font-size: 1.5rem;
+}
+
+.title-page .main-cta {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  border-radius: 35px;
+}
+
+.main-arrow {
+  right: -80px;
+  bottom: -15px;
+  transform: rotate(5deg);
+}
+
+/* Video styling */
+.hero-video-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 70%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  background-color: #f8f8f8;
+}
+
+.video-wrapper::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.05) 10px,
+    rgba(0, 0, 0, 0.07) 10px,
+    rgba(0, 0, 0, 0.07) 20px
+  );
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px dashed #aaa;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.video-notes {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-note {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.video-arrow {
+  font-family: 'Mali', cursive;
+  font-size: 2rem;
+  color: #d63031;
+  margin-top: -5px;
+}
+
+.video-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border: 2px dashed #aaa;
+}
+
+.video-fallback p {
+  margin: 0.5rem 0;
+  font-family: 'Mali', cursive;
+}
+
+/* Feature list in second section */
+.feature-list-large li {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
 /* HomePage styling with checkered paper background */
 .notebook-paper {
   background-color: #fff;
@@ -119,13 +239,6 @@
   transform: rotate(15deg);
 }
 
-.arrow-sketch {
-  position: absolute;
-  right: -60px;
-  bottom: -10px;
-  transform: rotate(10deg);
-}
-
 .underline-sketch {
   position: absolute;
   bottom: -10px;
@@ -151,7 +264,7 @@
   opacity: 0.6;
 }
 
-.draft-mark {
+.grade-mark {
   color: rgba(220, 53, 69, 0.7);
   font-size: 2.5rem;
   transform: rotate(-30deg);
@@ -241,6 +354,12 @@
   justify-content: center;
 }
 
+/* Custom button sizes */
+.btn-xl {
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+}
+
 /* Media queries for responsive design */
 @media (max-width: 768px) {
   .notebook-paper {
@@ -264,5 +383,26 @@
 
   .feature-card {
     margin-bottom: 1.5rem;
+  }
+
+  .title-page .title-main {
+    font-size: 3rem;
+  }
+
+  .title-page .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .video-wrapper {
+    width: 90%;
+  }
+
+  .main-arrow,
+  .video-note {
+    display: none;
+  }
+
+  .video-arrow {
+    font-size: 1.5rem;
   }
 }

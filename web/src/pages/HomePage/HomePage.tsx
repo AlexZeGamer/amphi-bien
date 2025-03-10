@@ -1,10 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { Link, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
+import { Meta, Metadata, MetaTags } from '@redwoodjs/web'
 import './HomePage.css'
 
 const HomePage = () => {
+  const videoRef = useRef(null)
+
   useEffect(() => {
     // Apply random tilts to paper sections on page load
     const papers = document.querySelectorAll('.paper-section')
@@ -46,116 +48,125 @@ const HomePage = () => {
 
   return (
     <>
-      <MetaTags
-        title="Home"
+      <Metadata
+        title="Amphi-Bien"
         description="Welcome to Amphi-bien, find the perfect amphitheater for your studies!"
       />
       <div className="landing-container">
-        {/* Section 1: Welcome Section */}
-        <section className="paper-section a4-paper">
+        {/* Section 1: Title Page */}
+        <section className="paper-section a4-paper title-page">
           <div className="notebook-paper">
             {/* Header with title */}
             <div className="page-header">
-              <h1 className="display-4 position-relative mb-4 text-center">
-                Amphi-bien
-                <svg
-                  className="red-circle"
-                  viewBox="0 0 100 100"
-                  width="200"
-                  height="200"
-                >
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="red"
-                    strokeWidth="2"
-                  />
-                </svg>
+              <h1 className="display-1 position-relative title-main text-center">
+                Amphi-Bien
+                <span className="crossed-text position-absolute">
+                  Amphi-nul
+                </span>
               </h1>
-              <p className="lead fst-italic mb-4 text-center">
-                Trouvez l'amphithéâtre parfait pour vos études !
+              <p className="lead fst-italic subtitle mb-5 text-center">
+                Trouve l&apos;amphi parfait pour tes études !
               </p>
             </div>
 
-            {/* Main content */}
-            <div className="content-section mt-5">
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="note-section">
-                    <h2 className="position-relative">
-                      Pourquoi Amphi-bien ?
-                      <span className="crossed-text position-absolute">
-                        Amphi-nul
-                      </span>
-                    </h2>
-                    <ul className="handwritten-list">
-                      <li>
-                        Trouvez les amphithéâtres les plus proches de vous
-                      </li>
-                      <li>Consultez les avis d'autres étudiants</li>
-                      <li>Découvrez les caractéristiques de chaque amphi</li>
-                      <li className="text-decoration-line-through">
-                        Cours ennuyeux
-                      </li>
-                      <li>Trouvez les meilleures places !</li>
-                    </ul>
+            {/* Hero video placeholder */}
+            <div className="hero-video-container">
+              <div className="video-wrapper">
+                <video
+                  ref={videoRef}
+                  className="hero-video"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src="/videos/landing-video.mp4" type="video/mp4" />
+                  <div className="video-fallback">
+                    <p>Votre navigateur ne supporte pas la lecture vidéo</p>
+                    <p className="handwritten-note">
+                      Illustration d&apos;un amphithéâtre
+                    </p>
                   </div>
+                </video>
+              </div>
+            </div>
+
+            {/* Primary Call to Action */}
+            <div className="mt-5 text-center">
+              <Link
+                to={routes.nearby()}
+                className="btn btn-primary btn-lg position-relative handwritten-button"
+              >
+                Trouve des amphis à proximité
+              </Link>
+            </div>
+
+            <div className="page-number">
+              <span>1</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2: About & Features */}
+        <section className="paper-section a4-paper">
+          <div className="notebook-paper">
+            <div className="page-header">
+              <h1 className="display-5 position-relative mb-4 text-center">
+                Pourquoi c&apos;est{' '}
+                <span className="text-decoration-line-through small">
+                  Amphi
+                </span>
+                bien ?
+              </h1>
+            </div>
+
+            <div className="content-section mt-4">
+              <div className="row mb-5">
+                <div className="col-md-8 mx-auto">
+                  <ul className="handwritten-list feature-list-large">
+                    <li>Trouve les amphis les plus proches de vous</li>
+                    <li>Consulte les avis des &apos;autres étudiants</li>
+                    <li>Découvre les caractéristiques de chaque amphi</li>
+                    <li className="text-decoration-line-through">
+                      Cours ennuyeux
+                    </li>
+                    <li>Trouve les meilleures places !</li>
+                  </ul>
                 </div>
-                <div className="col-md-6">
-                  <div className="action-section">
-                    <h2>Commencer maintenant</h2>
-                    <div className="d-flex flex-column mt-4 gap-3">
-                      <Link
-                        to={routes.nearby()}
-                        className="btn btn-primary btn-lg position-relative handwritten-button"
-                      >
-                        Amphis à proximité
-                        <svg className="arrow-sketch" width="80" height="40">
-                          <path
-                            d="M5,20 Q30,5 60,25 T80,20"
-                            stroke="black"
-                            fill="transparent"
-                            strokeWidth="2"
-                          />
-                          <path
-                            d="M70,15 L80,20 L75,30"
-                            stroke="black"
-                            fill="transparent"
-                            strokeWidth="2"
-                          />
-                        </svg>
-                      </Link>
-                      <Link
-                        to={routes.amphis()}
-                        className="btn btn-outline-secondary btn-lg handwritten-button"
-                      >
-                        Tous les amphis
-                      </Link>
-                      <Link
-                        to={routes.universities()}
-                        className="btn btn-outline-dark btn-lg handwritten-button"
-                      >
-                        Universités
-                      </Link>
-                    </div>
+              </div>
+
+              <div className="action-section mt-5">
+                <h2 className="handwritten-title mb-4 text-center">
+                  Explore les amphis
+                </h2>
+                <div className="row g-3 justify-content-center">
+                  <div className="col-md-4">
+                    <Link
+                      to={routes.amphis()}
+                      className="btn btn-outline-secondary btn-lg d-block handwritten-button"
+                    >
+                      Tous les amphis
+                    </Link>
+                  </div>
+                  <div className="col-md-4">
+                    <Link
+                      to={routes.universities()}
+                      className="btn btn-outline-dark btn-lg d-block handwritten-button"
+                    >
+                      Universités
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Footer note */}
-            <div className="note-footer mt-5">
-              <p className="handwritten-note fst-italic">
-                Note: Développé avec 💙 par des étudiants de Polytech.
-                <span className="draft-mark position-absolute">DRAFT</span>
-              </p>
+            <div className="page-number">
+              <span>2</span>
             </div>
           </div>
         </section>
 
-        {/* Section 2: Features Section */}
+        {/* Section 3: Features Section */}
         <section className="paper-section a4-paper">
           <div className="notebook-paper">
             <div className="page-header">
@@ -211,7 +222,8 @@ const HomePage = () => {
                     </div>
                     <h3>Informations</h3>
                     <p className="feature-description">
-                      Toutes les caractéristiques importantes en un coup d'œil.
+                      Toutes les caractéristiques importantes en un coup
+                      d&apos;œil.
                     </p>
                     <span className="handwritten-annotation">
                       Super utile !
@@ -231,8 +243,15 @@ const HomePage = () => {
               </div>
             </div>
 
+            {/* Footer note */}
+            <div className="note-footer mt-5">
+              <p className="handwritten-note fst-italic">
+                <span className="grade-mark position-absolute">18/20</span>
+              </p>
+            </div>
+
             <div className="page-number">
-              <span>2</span>
+              <span>3</span>
             </div>
           </div>
         </section>
