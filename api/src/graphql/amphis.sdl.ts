@@ -13,8 +13,8 @@ export const schema = gql`
   }
 
   type Query {
-    amphis: [Amphi!]! @requireAuth
-    amphi(id: Int!): Amphi @requireAuth
+    amphis: [Amphi!]! @skipAuth
+    amphi(id: Int!): Amphi @skipAuth
   }
 
   input CreateAmphiInput {

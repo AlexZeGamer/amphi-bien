@@ -10,6 +10,8 @@ import './scaffold.css'
 import './index.css'
 
 import Navbar from './components/Navbar/Navbar'
+
+import { AuthProvider, useAuth } from './auth'
 interface AppProps {
   children?: ReactNode
 }
@@ -17,10 +19,12 @@ interface AppProps {
 const App = ({ children }: AppProps) => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <RedwoodApolloProvider>
-        <Navbar />
-        <div className="container lg:px-24">{children}</div>
-      </RedwoodApolloProvider>
+      <AuthProvider>
+        <RedwoodApolloProvider useAuth={useAuth}>
+          <Navbar />
+          <div className="container lg:px-24">{children}</div>
+        </RedwoodApolloProvider>
+      </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )

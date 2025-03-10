@@ -15,6 +15,34 @@ import type {
 } from '@redwoodjs/web'
 import { gql } from '@redwoodjs/web'
 
+// Create a custom tile layer component for Google Maps
+const GoogleMapsLayer = () => {
+  const map = useMap()
+
+  useEffect(() => {
+    console.log('Google Maps layer effect')
+    console.log('Google Maps API key:', process.env.MAPS_API_KEY)
+    console.log('Google Maps script loaded:', window.google)
+    console.log(
+      'Google Maps Leaflet plugin loaded:',
+      window.L.gridLayer.googleMutant
+    )
+    if (!window.google || !window.L.gridLayer.googleMutant) return
+
+    const googleLayer = window.L.gridLayer.googleMutant({
+      type: 'roadmap',
+    })
+
+    googleLayer.addTo(map)
+
+    return () => {
+      map.removeLayer(googleLayer)
+    }
+  }, [map])
+
+  return null
+}
+
 // This component handles map events like "flyto"
 const MapEventHandler = () => {
   const map = useMap()
@@ -164,6 +192,27 @@ export const Success = ({
   // Default center if user location not available
   const defaultCenter: [number, number] = [48.8566, 2.3522] // Paris
 
+  // Load Google Maps scripts if API key is available
+  useEffect(() => {
+    if (process.env.MAPS_API_KEY && !window.google) {
+      const loadGoogleMapsScript = () => {
+        const script = document.createElement('script')
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.MAPS_API_KEY}`
+        script.async = true
+        script.defer = true
+        document.head.appendChild(script)
+
+        script.onload = () => {
+          const mutantScript = document.createElement('script')
+          mutantScript.src =
+            'https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js'
+          document.head.appendChild(mutantScript)
+        }
+      }
+      loadGoogleMapsScript()
+    }
+  }, [])
+
   return (
     <div>
       {isLocating ? (
@@ -177,12 +226,15 @@ export const Success = ({
               style={{ height: '100%', width: '100%' }}
               scrollWheelZoom={true}
             >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
+              {process.env.MAPS_API_KEY ? (
+                <GoogleMapsLayer />
+              ) : (
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+              )}
 
-              {/* Add the event handler component */}
               <MapEventHandler />
 
               {userLocation && (

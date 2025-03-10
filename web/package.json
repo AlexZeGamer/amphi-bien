@@ -11,13 +11,16 @@
     ]
   },
   "dependencies": {
+    "@redwoodjs/auth-firebase-web": "8.4.0",
     "@redwoodjs/forms": "8.4.0",
     "@redwoodjs/router": "8.4.0",
     "@redwoodjs/web": "8.4.0",
     "doodle-icons": "1.1.0",
     "filestack-react": "^5.0.0",
+    "firebase": "^10",
     "humanize-string": "2.1.0",
     "leaflet": "^1.9.4",
+    "leaflet.gridlayer.googlemutant": "^0.15.0",
     "react": "18.3.1",
     "react-alice-carousel": "^2.9.1",
     "react-dom": "18.3.1",
