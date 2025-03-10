@@ -1,0 +1,157 @@
+/* HomePage styling with checkered paper background */
+.notebook-paper {
+  background-color: #fff;
+  background-image:
+    linear-gradient(90deg, transparent 39px, #c6c6c6 39px, #c6c6c6 41px, transparent 41px),
+    linear-gradient(#e6e6e6 1px, transparent 1px);
+  background-size: 100% 30px, 100% 30px;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin: 2rem auto;
+  max-width: 1000px;
+  min-height: 80vh;
+}
+
+.notebook-paper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: #faf4e1;
+  border-right: 2px solid #e2dfd4;
+  z-index: -1;
+}
+
+/* Handwritten text styling */
+.notebook-paper h1,
+.notebook-paper h2 {
+  font-family: 'Cabin Sketch', cursive;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.notebook-paper p,
+.notebook-paper li {
+  font-family: 'Mali', cursive;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.handwritten-list {
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+.handwritten-list li {
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 25px;
+}
+
+.handwritten-list li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #155d6f;
+  font-weight: bold;
+  transform: rotate(-10deg);
+}
+
+.handwritten-button {
+  font-family: 'Mali', cursive !important;
+  transform: rotate(-0.5deg);
+  transition: all 0.2s ease;
+}
+
+.handwritten-button:hover {
+  transform: rotate(0.5deg) scale(1.02);
+}
+
+/* Elements for crossed text, red circle and other visual effects */
+.crossed-text {
+  font-family: 'Mali', cursive;
+  text-decoration: line-through;
+  color: #d63031;
+  font-size: 0.8em;
+  top: -5px;
+  right: -70px;
+  transform: rotate(8deg);
+}
+
+.red-circle {
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  z-index: 1;
+  opacity: 0.8;
+  transform: rotate(15deg);
+}
+
+.arrow-sketch {
+  position: absolute;
+  right: -60px;
+  bottom: -10px;
+  transform: rotate(10deg);
+}
+
+.note-section, .action-section {
+  padding: 20px;
+  position: relative;
+}
+
+.note-section::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  width: 70px;
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M10,25 Q30,5 50,25 T90,25' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+.draft-mark {
+  color: rgba(220, 53, 69, 0.7);
+  font-size: 2.5rem;
+  transform: rotate(-30deg);
+  bottom: 10px;
+  right: 50px;
+  font-family: 'Cabin Sketch', cursive;
+  font-weight: bold;
+  border: 3px solid rgba(220, 53, 69, 0.7);
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.handwritten-note {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  position: relative;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .notebook-paper {
+    padding: 20px 20px 20px 50px;
+  }
+
+  .red-circle {
+    width: 150px;
+    height: 150px;
+    top: -60px;
+    right: -40px;
+  }
+
+  .crossed-text {
+    display: block;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-left: 20px;
+  }
+}
