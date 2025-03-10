@@ -1,3 +1,31 @@
+/* Landing page container with scrollable sections */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 2rem 0 5rem;
+}
+
+/* A4 paper dimensions and styling */
+.a4-paper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  /* A4 aspect ratio approximation while still being responsive */
+  --a4-aspect-ratio: 1.414; /* 1:1.414 is A4 ratio */
+}
+
+.paper-section {
+  transition: transform 0.3s ease;
+  margin-bottom: 0;
+  z-index: 1;
+}
+
+.paper-section:hover {
+  z-index: 2;
+}
+
 /* HomePage styling with checkered paper background */
 .notebook-paper {
   background-color: #fff;
@@ -9,7 +37,7 @@
   border-radius: 8px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
   position: relative;
-  margin: 2rem auto;
+  margin: 0 auto;
   max-width: 1000px;
   min-height: 80vh;
 }
@@ -28,7 +56,8 @@
 
 /* Handwritten text styling */
 .notebook-paper h1,
-.notebook-paper h2 {
+.notebook-paper h2,
+.notebook-paper h3 {
   font-family: 'Cabin Sketch', cursive;
   letter-spacing: 0.5px;
   color: #333;
@@ -63,7 +92,6 @@
 
 .handwritten-button {
   font-family: 'Mali', cursive !important;
-  transform: rotate(-0.5deg);
   transition: all 0.2s ease;
 }
 
@@ -96,6 +124,14 @@
   right: -60px;
   bottom: -10px;
   transform: rotate(10deg);
+}
+
+.underline-sketch {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8;
 }
 
 .note-section, .action-section {
@@ -134,6 +170,77 @@
   position: relative;
 }
 
+/* Feature card styling */
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px dashed #aaa;
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  display: inline-block;
+  transform: rotate(-5deg);
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.sketch-decoration {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' fill='none' stroke='%23333' stroke-width='1'%3E%3Cpath d='M10,25 Q25,5 40,25' /%3E%3Cpath d='M10,35 Q25,15 40,35' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+.handwritten-annotation {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-family: 'Mali', cursive;
+  font-size: 0.8rem;
+  color: #d63031;
+  transform: rotate(8deg);
+  padding: 0.25rem 0.5rem;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 15px;
+  right: 25px;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.page-number span {
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Media queries for responsive design */
 @media (max-width: 768px) {
   .notebook-paper {
@@ -153,5 +260,9 @@
     right: auto;
     top: auto;
     margin-left: 20px;
+  }
+
+  .feature-card {
+    margin-bottom: 1.5rem;
   }
 }
