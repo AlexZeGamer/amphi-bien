@@ -93,7 +93,7 @@ const Amphi = ({ amphi }: Props) => {
       </section>
 
       <section className="mt-6">
-        <h2 className="mb-3 text-2xl">A propos</h2>
+        <h2 className="mb-3 text-2xl">À propos</h2>
         <p className="font-medium">{amphi.description}</p>
       </section>
 
