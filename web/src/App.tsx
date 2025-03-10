@@ -9,7 +9,9 @@ import './bootstrap.css'
 import './scaffold.css'
 import './index.css'
 
+import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
+
 interface AppProps {
   children?: ReactNode
 }
@@ -19,7 +21,8 @@ const App = ({ children }: AppProps) => (
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <RedwoodApolloProvider>
         <Navbar />
-        <div className="container lg:px-24">{children}</div>
+        <main className="container lg:px-24">{children}</main>
+        <Footer />
       </RedwoodApolloProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>

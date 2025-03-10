@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --logo-color-primary: #7eca8f;
+        --logo-color-secondary: #155d6f;
+        --logo-color-background: #333;
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --logo-color-primary: #155d6f;
+        --logo-color-secondary: #7eca8f;
+        --logo-color-background: #fff;
+      }
+    }
+  </style>
+  <rect width="32" height="32" rx="4" fill="var(--logo-color-background)"/>
+  <g transform="translate(4, 4) scale(0.75)">
+    <!-- A-shape with handwritten style -->
+    <path d="M10,24 L16,8 L22,24" stroke="var(--logo-color-primary)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12,18 L20,18" stroke="var(--logo-color-primary)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- B-shape (simplified) -->
+    <path d="M26,8 C28,8 30,10 30,12 C30,14 28,15 26,16 C29,17 31,18 31,21 C31,24 28,26 25,26 L24,26 L24,8 L26,8 Z" stroke="var(--logo-color-secondary)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
