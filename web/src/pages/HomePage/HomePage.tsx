@@ -49,8 +49,8 @@ const HomePage = () => {
   return (
     <>
       <Metadata
-        title="Amphi-Bien"
-        description="Welcome to Amphi-bien, find the perfect amphitheater for your studies!"
+        title="AmphiBien"
+        description="Trouve l'amphi parfait pour tes études !"
       />
       <div className="landing-container">
         {/* Section 1: Title Page */}

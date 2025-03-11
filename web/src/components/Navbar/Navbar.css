@@ -40,6 +40,11 @@
   padding: 0 1rem;
 }
 
+/* Add left padding to the container to avoid overlap with paper margin */
+.notebook-navbar .container {
+  padding-left: 50px; /* Add enough space for the vertical paper margin */
+}
+
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -52,18 +57,18 @@
   transform: rotate(1deg) scale(1.05);
 }
 
-.navbar-logo {
+.navbar-logo-small {
   height: 40px;
   width: auto;
   margin-right: 10px;
+  display: none; /* Hide small logo on desktop */
 }
 
-.navbar-title {
-  font-family: 'Cabin Sketch', cursive;
-  font-size: 1.5rem;
-  color: #333;
-  margin: 0;
-  padding: 0;
+.navbar-logo-large {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+  display: block; /* Show large logo on desktop */
 }
 
 .navbar-links {
@@ -120,13 +125,17 @@
   transform: rotate(5deg);
 }
 
-/* Media queries for responsive design */
+/* Mobile */
 @media (max-width: 768px) {
   .navbar-content {
-    padding-left: 50px;
+    padding-left: 15px; /* Reset padding since we're using container padding */
   }
 
-  .navbar-title {
-    display: none;
+  .navbar-logo-small {
+    display: block; /* Show small logo on mobile */
+  }
+
+  .navbar-logo-large {
+    display: none; /* Hide large logo on mobile */
   }
 }

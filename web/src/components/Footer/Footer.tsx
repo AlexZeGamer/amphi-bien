@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4 footer-section">
-              <h3 className="footer-title">Amphi-Bien</h3>
+              <h3 className="footer-title">AmphiBien</h3>
               <p className="handwritten-text">
                 Une plateforme pour explorer et découvrir les meilleurs
                 amphithéâtres des universités françaises.

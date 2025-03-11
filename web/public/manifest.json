@@ -1,38 +1,43 @@
 {
-  "name": "Amphi-Bien",
-  "short_name": "Amphi-Bien",
+  "name": "AmphiBien",
+  "short_name": "AmphiBien",
   "description": "Trouvez l'amphithéâtre parfait pour vos études",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#155d6f",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/favicon/favicon.svg",
       "type": "image/svg+xml",
       "sizes": "any"
     },
     {
-      "src": "/favicon.png",
-      "type": "image/png",
-      "sizes": "32x32"
+      "src": "/favicon/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "any"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/favicon/favicon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/favicon/apple-touch-icon.png",
       "type": "image/png",
       "sizes": "180x180"
     },
     {
-      "src": "/icon-192.png",
-      "type": "image/png",
+      "src": "/favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-512.png",
-      "type": "image/png",
+      "src": "/favicon/web-app-manifest-512x512.png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

@@ -12,11 +12,15 @@ const Navbar = () => {
           <div className="navbar-content">
             <Link to={routes.home()} className="navbar-brand">
               <img
-                src="/icons/amphibien-slug-icon.svg"
-                alt="Amphi-Bien"
-                className="navbar-logo"
+                src="/logo/logo-small.svg"
+                alt="AmphiBien"
+                className="navbar-logo-small"
               />
-              <h1 className="navbar-title">Amphi-Bien</h1>
+              <img
+                src="/logo/logo-large.svg"
+                alt="AmphiBien"
+                className="navbar-logo-large"
+              />
             </Link>
 
             <div className="navbar-links">
