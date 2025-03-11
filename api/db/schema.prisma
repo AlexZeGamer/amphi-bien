@@ -29,6 +29,7 @@ model Amphi {
   university   University @relation(fields: [universityId], references: [id])
   images       Image[]
   features     Feature[]
+  issues       Issue[]
 }
 
 model Feature {
@@ -57,4 +58,15 @@ model Image {
   url     String
   Amphi   Amphi? @relation(fields: [amphiId], references: [id])
   amphiId Int?
+}
+
+model Issue {
+  id          Int      @id @default(autoincrement())
+  severity    String // Changed from IssueSeverity to String
+  description String
+  upvotes     Int      @default(0)
+  isFixed     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  amphi       Amphi    @relation(fields: [amphiId], references: [id])
+  amphiId     Int
 }

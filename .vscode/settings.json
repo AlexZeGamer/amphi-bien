@@ -3,7 +3,9 @@
   "files.trimTrailingWhitespace": true,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "always"
+
   },
   "[prisma]": {
     "editor.formatOnSave": true
@@ -15,6 +17,6 @@
     "errorClassName"
   ],
   "github.copilot.advanced": {},
-  "github.copilot.chat.edits.codesearch.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.completionContext.typescript.mode": "on"
 }

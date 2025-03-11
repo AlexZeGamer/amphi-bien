@@ -9,10 +9,10 @@ import './bootstrap.css'
 import './scaffold.css'
 import './index.css'
 
+import { AuthProvider, useAuth } from './auth'
 import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
 
-import { AuthProvider, useAuth } from './auth'
 interface AppProps {
   children?: ReactNode
 }

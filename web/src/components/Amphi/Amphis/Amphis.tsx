@@ -46,7 +46,7 @@ const AmphisList = ({ amphis }: FindAmphis) => {
 
   return (
     <div className="table-responsive">
-      <table className="table table-hover">
+      <table className="table-hover table">
         <thead>
           <tr>
             <th>Id</th>
