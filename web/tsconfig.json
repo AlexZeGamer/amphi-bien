@@ -30,7 +30,7 @@
       "../node_modules/@testing-library"
     ],
     "types": ["jest", "jest-dom"],
-    "jsx": "preserve"
+    "jsx": "preserve",
   },
   "include": [
     "src",
