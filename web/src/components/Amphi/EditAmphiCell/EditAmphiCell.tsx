@@ -6,8 +6,8 @@ import type {
 
 import { navigate, routes } from '@redwoodjs/router'
 import type {
-  CellSuccessProps,
   CellFailureProps,
+  CellSuccessProps,
   TypedDocumentNode,
 } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
@@ -58,21 +58,21 @@ const UPDATE_AMPHI_MUTATION: TypedDocumentNode<
 export const Loading = () => (
   <div className="flex h-screen items-center justify-center">
     <div className="spinner-border text-primary" role="status">
-      <span className="visually-hidden">Loading...</span>
+      <span className="visually-hidden">Chargement...</span>
     </div>
   </div>
 )
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div className="mx-auto my-8 max-w-4xl rounded-md border border-red-200 bg-red-50 p-4">
-    <h2 className="mb-2 text-xl font-bold text-red-700">Error</h2>
+    <h2 className="mb-2 text-xl font-bold text-red-700">Erreur</h2>
     <p className="text-red-600">{error?.message}</p>
   </div>
 )
 
 export const Success = ({ amphi }: CellSuccessProps<EditAmphiById>) => {
   const [updateAmphi, { loading, error }] = useMutation(UPDATE_AMPHI_MUTATION, {
-    onCompleted: async (data) => {
+    onCompleted: async () => {
       // With Filestack, image URLs are already provided in the form data
       // We just need to handle saving these to the database via our API
 
@@ -95,7 +95,9 @@ export const Success = ({ amphi }: CellSuccessProps<EditAmphiById>) => {
   return (
     <div className="mx-auto my-8 max-w-5xl overflow-hidden rounded-lg bg-white shadow-md">
       <header className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
-        <h2 className="text-2xl font-bold text-white">Edit Amphitheater</h2>
+        <h2 className="text-2xl font-bold text-white">
+          Modifier l&apos;amphithéâtre
+        </h2>
         <p className="text-blue-100">{amphi?.name}</p>
       </header>
 

@@ -4,12 +4,12 @@ import type {
   FindUniversityById,
 } from 'types/graphql'
 
-import { Link, routes, navigate } from '@redwoodjs/router'
-import { useMutation } from '@redwoodjs/web'
+import { Link, navigate, routes } from '@redwoodjs/router'
 import type { TypedDocumentNode } from '@redwoodjs/web'
+import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import {} from 'src/lib/formatters'
+import { } from 'src/lib/formatters'
 
 const DELETE_UNIVERSITY_MUTATION: TypedDocumentNode<
   DeleteUniversityMutation,
@@ -47,7 +47,9 @@ const University = ({ university }: Props) => {
     <>
       <div className="card border-primary mb-3">
         <header className="card-header">
-          <h2 className="card-title">University {university.id} Detail</h2>
+          <h2 className="card-title">
+            Détail de l&apos;université {university.name}
+          </h2>
         </header>
         <table className="table-hover table">
           <tbody>
@@ -56,7 +58,7 @@ const University = ({ university }: Props) => {
               <td>{university.id}</td>
             </tr>
             <tr>
-              <th>Name</th>
+              <th>Nom</th>
               <td>{university.name}</td>
             </tr>
           </tbody>
@@ -67,14 +69,14 @@ const University = ({ university }: Props) => {
           to={routes.editUniversity({ id: university.id })}
           className="btn btn-primary"
         >
-          Edit
+          Modifier
         </Link>
         <button
           type="button"
           className="btn btn-danger"
           onClick={() => onDeleteClick(university.id)}
         >
-          Delete
+          Supprimer
         </button>
       </nav>
     </>

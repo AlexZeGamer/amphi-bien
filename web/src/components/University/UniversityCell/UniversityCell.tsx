@@ -4,8 +4,8 @@ import type {
 } from 'types/graphql'
 
 import type {
-  CellSuccessProps,
   CellFailureProps,
+  CellSuccessProps,
   TypedDocumentNode,
 } from '@redwoodjs/web'
 
@@ -23,9 +23,9 @@ export const QUERY: TypedDocumentNode<
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Chargement...</div>
 
-export const Empty = () => <div>University not found</div>
+export const Empty = () => <div>Université non trouvée</div>
 
 export const Failure = ({
   error,

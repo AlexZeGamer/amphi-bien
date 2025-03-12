@@ -2,8 +2,8 @@ import type { FindUniversities, FindUniversitiesVariables } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
 import type {
-  CellSuccessProps,
   CellFailureProps,
+  CellSuccessProps,
   TypedDocumentNode,
 } from '@redwoodjs/web'
 
@@ -21,14 +21,14 @@ export const QUERY: TypedDocumentNode<
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Chargement...</div>
 
 export const Empty = () => {
   return (
     <div className="text-center">
-      No universities yet.{' '}
+      Pas encore d&apos;universités.{' '}
       <Link to={routes.newUniversity()} className="btn btn-link">
-        Create one?
+        En créer une ?
       </Link>
     </div>
   )

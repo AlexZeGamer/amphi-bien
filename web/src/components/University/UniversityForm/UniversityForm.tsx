@@ -2,12 +2,12 @@ import type { EditUniversityById, UpdateUniversityInput } from 'types/graphql'
 
 import type { RWGqlError } from '@redwoodjs/forms'
 import {
+  FieldError,
   Form,
   FormError,
-  FieldError,
   Label,
-  TextField,
   Submit,
+  TextField,
 } from '@redwoodjs/forms'
 
 type FormUniversity = NonNullable<EditUniversityById['university']>
@@ -39,7 +39,7 @@ const UniversityForm = (props: UniversityFormProps) => {
           className="form-label"
           errorClassName="form-label text-danger"
         >
-          Name
+          Nom
         </Label>
 
         <TextField
@@ -54,7 +54,7 @@ const UniversityForm = (props: UniversityFormProps) => {
 
         <div className="mt-3">
           <Submit disabled={props.loading} className="btn btn-primary">
-            Save
+            Sauvegarder
           </Submit>
         </div>
       </Form>

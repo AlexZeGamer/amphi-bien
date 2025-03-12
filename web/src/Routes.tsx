@@ -19,21 +19,15 @@ const Routes = () => {
     <Router useAuth={useAuth}>
       <Route path="/" page={HomePage} name="home" />
       <Route path="/login" page={AuthPage} name="auth" />
-      <Set wrap={ScaffoldLayout} title="Universities" titleTo="universities" buttonLabel="New University" buttonTo="newUniversity">
+      <Set wrap={ScaffoldLayout} title="Universités" titleTo="universities" buttonLabel="Nouvelle université" buttonTo="newUniversity">
         <Route path="/universities/new" page={UniversityNewUniversityPage} name="newUniversity" />
         <Route path="/universities/{id:Int}/edit" page={UniversityEditUniversityPage} name="editUniversity" />
         <Route path="/universities/{id:Int}" page={UniversityUniversityPage} name="university" />
         <Route path="/universities" page={UniversityUniversitiesPage} name="universities" />
       </Set>
-      <Set wrap={ScaffoldLayout} title="Images" titleTo="images" buttonLabel="New Image" buttonTo="newImage">
-        <Route path="/images/new" page={ImageNewImagePage} name="newImage" />
-        <Route path="/images/{id:Int}/edit" page={ImageEditImagePage} name="editImage" />
-        <Route path="/images/{id:Int}" page={ImageImagePage} name="image" />
-        <Route path="/images" page={ImageImagesPage} name="images" />
-      </Set>
       <Route path="/nearby" page={NearbyPage} name="nearby" />
       <Route path="/amphis/{id:Int}" page={AmphiAmphiPage} name="amphi" />
-      <Set wrap={ScaffoldLayout} title="Amphis" titleTo="amphis" buttonLabel="New Amphi" buttonTo="newAmphi">
+      <Set wrap={ScaffoldLayout} title="Amphis" titleTo="amphis" buttonLabel="Nouvel amphi" buttonTo="newAmphi">
         <Route path="/amphis/new" page={AmphiNewAmphiPage} name="newAmphi" />
         <Route path="/amphis/{id:Int}/edit" page={AmphiEditAmphiPage} name="editAmphi" />
         <Route path="/amphis" page={AmphiAmphisPage} name="amphis" />

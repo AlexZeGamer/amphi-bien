@@ -2,11 +2,11 @@ import { render } from '@redwoodjs/testing/web'
 
 import NearbyPage from './NearbyPage'
 
-//   Improve this test with help from the Redwood Testing Doc:
+//   Améliorez ce test avec l'aide de la documentation de test Redwood :
 //   https://redwoodjs.com/docs/testing#testing-pages-layouts
 
 describe('NearbyPage', () => {
-  it('renders successfully', () => {
+  it('se rend avec succès', () => {
     expect(() => {
       render(<NearbyPage />)
     }).not.toThrow()

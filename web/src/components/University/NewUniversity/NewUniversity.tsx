@@ -1,12 +1,12 @@
 import type {
-  CreateUniversityMutation,
   CreateUniversityInput,
+  CreateUniversityMutation,
   CreateUniversityMutationVariables,
 } from 'types/graphql'
 
 import { navigate, routes } from '@redwoodjs/router'
-import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
+import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import UniversityForm from 'src/components/University/UniversityForm'
@@ -43,7 +43,7 @@ const NewUniversity = () => {
   return (
     <div className="card border-primary mb-3">
       <header className="card-header">
-        <h2 className="card-title">New University</h2>
+        <h2 className="card-title">Nouvelle université</h2>
       </header>
       <div className="card-body">
         <UniversityForm onSave={onSave} loading={loading} error={error} />

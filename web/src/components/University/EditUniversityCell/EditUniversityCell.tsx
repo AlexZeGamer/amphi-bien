@@ -6,8 +6,8 @@ import type {
 
 import { navigate, routes } from '@redwoodjs/router'
 import type {
-  CellSuccessProps,
   CellFailureProps,
+  CellSuccessProps,
   TypedDocumentNode,
 } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
@@ -36,7 +36,7 @@ const UPDATE_UNIVERSITY_MUTATION: TypedDocumentNode<
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Chargement...</div>
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div className="alert alert-danger">{error?.message}</div>
@@ -68,7 +68,9 @@ export const Success = ({
   return (
     <div className="card border-primary mb-3">
       <header className="card-header">
-        <h2 className="card-title">Edit University {university?.id}</h2>
+        <h2 className="card-title">
+          Modifier l&apos;université {university?.name}
+        </h2>
       </header>
       <div className="card-body">
         <UniversityForm

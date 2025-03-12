@@ -5,8 +5,8 @@ import type {
 } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
-import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
+import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Amphi/AmphisCell'
@@ -23,24 +23,24 @@ const DELETE_AMPHI_MUTATION: TypedDocumentNode<
   }
 `
 
-const AmphisList = ({ amphis }: FindAmphis) => {
-  const [deleteAmphi] = useMutation(DELETE_AMPHI_MUTATION, {
+const ListeAmphis = ({ amphis }: FindAmphis) => {
+  const [supprimerAmphi] = useMutation(DELETE_AMPHI_MUTATION, {
     onCompleted: () => {
-      toast.success('Amphi deleted')
+      toast.success('Amphi supprimé')
     },
-    onError: (error) => {
-      toast.error(error.message)
+    onError: (erreur) => {
+      toast.error(erreur.message)
     },
-    // This refetches the query on the list page. Read more about other ways to
-    // update the cache over here:
+    // Cette opération relance la requête sur la page de liste. En savoir plus sur d'autres façons de
+    // mettre à jour le cache ici :
     // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
     refetchQueries: [{ query: QUERY }],
     awaitRefetchQueries: true,
   })
 
-  const onDeleteClick = (id: DeleteAmphiMutationVariables['id']) => {
-    if (confirm('Are you sure you want to delete amphi ' + id + '?')) {
-      deleteAmphi({ variables: { id } })
+  const onSupprimerClique = (id: DeleteAmphiMutationVariables['id']) => {
+    if (confirm("Êtes-vous sûr de vouloir supprimer l'amphi " + id + ' ?')) {
+      supprimerAmphi({ variables: { id } })
     }
   }
 
@@ -50,11 +50,9 @@ const AmphisList = ({ amphis }: FindAmphis) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Lat</th>
-            <th>Lon</th>
-            <th>Seats</th>
-            <th>University id</th>
+            <th>Nom</th>
+            <th>Places</th>
+            <th>Université</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -63,33 +61,31 @@ const AmphisList = ({ amphis }: FindAmphis) => {
             <tr key={amphi.id}>
               <td className="bg-red-600">{truncate(amphi.id)}</td>
               <td>{truncate(amphi.name)}</td>
-              <td>{truncate(amphi.lat)}</td>
-              <td>{truncate(amphi.lon)}</td>
               <td>{truncate(amphi.seats)}</td>
-              <td>{truncate(amphi.universityId)}</td>
+              <td>{truncate(amphi.university.name)}</td>
               <td>
                 <nav className="btn-group btn-group-sm">
                   <Link
                     to={routes.amphi({ id: amphi.id })}
-                    title={'Show amphi ' + amphi.id + ' detail'}
+                    title={"Afficher les détails de l'amphi " + amphi.id}
                     className="btn btn-info"
                   >
-                    Show
+                    Afficher
                   </Link>
                   <Link
                     to={routes.editAmphi({ id: amphi.id })}
-                    title={'Edit amphi ' + amphi.id}
+                    title={"Modifier l'amphi " + amphi.id}
                     className="btn btn-dark"
                   >
-                    Edit
+                    Modifier
                   </Link>
                   <button
                     type="button"
-                    title={'Delete amphi ' + amphi.id}
+                    title={"Supprimer l'amphi " + amphi.id}
                     className="btn btn-danger"
-                    onClick={() => onDeleteClick(amphi.id)}
+                    onClick={() => onSupprimerClique(amphi.id)}
                   >
-                    Delete
+                    Supprimer
                   </button>
                 </nav>
               </td>
@@ -101,4 +97,4 @@ const AmphisList = ({ amphis }: FindAmphis) => {
   )
 }
 
-export default AmphisList
+export default ListeAmphis

@@ -5,7 +5,7 @@ import NearbyCell from 'src/components/NearbyCell'
 const NearbyPage = () => {
   return (
     <>
-      <Metadata title="Nearby" description="Nearby page" />
+      <Metadata title="À Proximité" description="Page à proximité" />
 
       <NearbyCell />
     </>

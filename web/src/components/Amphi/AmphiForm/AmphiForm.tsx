@@ -148,7 +148,7 @@ const AmphiForm = (props: AmphiFormProps) => {
         />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Basic Info Section */}
+          {/* Section Informations de base */}
           <div className="space-y-4">
             <h3 className="border-b pb-2 text-lg font-medium">
               Informations de base
@@ -239,7 +239,7 @@ const AmphiForm = (props: AmphiFormProps) => {
             </div>
           </div>
 
-          {/* Location Section */}
+          {/* Section Localisation */}
           <div className="space-y-4">
             <h3 className="border-b pb-2 text-lg font-medium">Localisation</h3>
             <p className="text-sm text-gray-500">
@@ -310,11 +310,11 @@ const AmphiForm = (props: AmphiFormProps) => {
           </div>
         </div>
 
-        {/* Images Section */}
+        {/* Section Images */}
         <div className="space-y-4">
           <h3 className="border-b pb-2 text-lg font-medium">Images</h3>
 
-          {/* Existing Images */}
+          {/* Images actuelles */}
           {existingImages.length > 0 && (
             <div>
               <h4 className="mb-2 text-sm font-medium text-gray-700">
@@ -355,7 +355,7 @@ const AmphiForm = (props: AmphiFormProps) => {
             </div>
           )}
 
-          {/* Newly Uploaded Images */}
+          {/* Nouvelles images */}
           {uploadedImages.length > 0 && (
             <div>
               <h4 className="mb-2 text-sm font-medium text-gray-700">
@@ -408,7 +408,7 @@ const AmphiForm = (props: AmphiFormProps) => {
             </div>
           )}
 
-          {/* Image Upload Section */}
+          {/* Section Ajouter de nouvelles images */}
           <div>
             <h4 className="mb-2 text-sm font-medium text-gray-700">
               Ajouter de nouvelles images ({imageCount}/10)

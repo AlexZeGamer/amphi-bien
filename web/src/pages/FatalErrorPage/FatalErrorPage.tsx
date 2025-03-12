@@ -50,7 +50,7 @@ export default DevFatalErrorPage ||
       />
       <section>
         <h1>
-          <span>Something went wrong</span>
+          <span>Une terrible erreur s&apos;est produite.</span>
         </h1>
       </section>
     </main>

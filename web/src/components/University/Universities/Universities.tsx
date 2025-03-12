@@ -5,8 +5,8 @@ import type {
 } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
-import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
+import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/University/UniversitiesCell'
@@ -50,7 +50,7 @@ const UniversitiesList = ({ universities }: FindUniversities) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Name</th>
+            <th>Nom</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -66,14 +66,14 @@ const UniversitiesList = ({ universities }: FindUniversities) => {
                     title={'Show university ' + university.id + ' detail'}
                     className="btn btn-info"
                   >
-                    Show
+                    Voir
                   </Link>
                   <Link
                     to={routes.editUniversity({ id: university.id })}
                     title={'Edit university ' + university.id}
                     className="btn btn-dark"
                   >
-                    Edit
+                    Modifier
                   </Link>
                   <button
                     type="button"
@@ -81,7 +81,7 @@ const UniversitiesList = ({ universities }: FindUniversities) => {
                     className="btn btn-danger"
                     onClick={() => onDeleteClick(university.id)}
                   >
-                    Delete
+                    Supprimer
                   </button>
                 </nav>
               </td>

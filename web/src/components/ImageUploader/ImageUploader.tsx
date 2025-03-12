@@ -122,7 +122,7 @@ const ImageUploader = ({
             <div className="mb-2 flex items-center justify-between">
               <div>
                 <span className="inline-block rounded-full bg-blue-200 px-2 py-1 text-xs font-semibold uppercase text-blue-600">
-                  Uploading...
+                  Envoi...
                 </span>
               </div>
               <div className="text-right">

@@ -2,8 +2,8 @@ import type { FindAmphis, FindAmphisVariables } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
 import type {
-  CellSuccessProps,
   CellFailureProps,
+  CellSuccessProps,
   TypedDocumentNode,
 } from '@redwoodjs/web'
 
@@ -14,10 +14,10 @@ export const QUERY: TypedDocumentNode<FindAmphis, FindAmphisVariables> = gql`
     amphis {
       id
       name
-      lat
-      lon
       seats
-      universityId
+      university {
+        name
+      }
     }
   }
 `
@@ -27,9 +27,9 @@ export const Loading = () => <div>Loading...</div>
 export const Empty = () => {
   return (
     <div className="text-center">
-      No amphis yet.{' '}
+      Pas encore d&apos;amphis.{' '}
       <Link to={routes.newAmphi()} className="btn btn-link">
-        Create one?
+        Créer un ?
       </Link>
     </div>
   )
