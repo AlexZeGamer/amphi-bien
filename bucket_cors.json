@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["http://localhost:8910/", "https://amphi-bien.fr"],
+    "method": ["GET", "HEAD", "POST", "PUT"],
+    "responseHeader": ["Content-Type"],
+    "maxAgeSeconds": 3600
+  }
+]

@@ -25,5 +25,11 @@
   "packageManager": "yarn@4.4.0",
   "resolutions": {
     "@storybook/react-dom-shim@npm:7.6.17": "https://verdaccio.tobbe.dev/@storybook/react-dom-shim/-/react-dom-shim-8.0.8.tgz"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.15.2",
+    "file-type": "^20.4.0",
+    "mime": "^4.0.6",
+    "uuid": "^11.1.0"
   }
 }

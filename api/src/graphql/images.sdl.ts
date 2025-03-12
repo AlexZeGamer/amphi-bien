@@ -13,6 +13,11 @@ export const schema = gql`
     imagesByAmphiId(amphiId: Int!): [Image!]! @requireAuth
   }
 
+  type SignedUrlResponse {
+    url: String!
+    filename: String!
+  }
+
   input CreateImageInput {
     title: String!
     url: String!
@@ -33,5 +38,15 @@ export const schema = gql`
     ): [Image!]! @requireAuth
     updateImage(id: Int!, input: UpdateImageInput!): Image! @requireAuth
     deleteImage(id: Int!): Image! @requireAuth
+
+    # Generate a signed URL for uploading an image to GCP Storage
+    generateSignedUrl(amphiId: Int!): SignedUrlResponse! @requireAuth
+
+    # Register a GCP-uploaded image in the database
+    registerUploadedImage(
+      filename: String!
+      title: String!
+      amphiId: Int!
+    ): Image! @requireAuth
   }
 `
