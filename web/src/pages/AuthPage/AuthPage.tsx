@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
 
-import { Form, TextField, FieldError, Submit, Label } from '@redwoodjs/forms'
+import {
+  FieldError,
+  Form,
+  Label,
+  PasswordField,
+  Submit,
+  TextField,
+} from '@redwoodjs/forms'
 import { Metadata } from '@redwoodjs/web'
 
 import { useAuth } from 'src/auth'
@@ -99,21 +106,6 @@ const AuthPage = () => {
             <div className="notebook-paper">
               <h1 className="display-4 position-relative mb-4 text-center">
                 Bienvenue !
-                <svg
-                  className="red-circle"
-                  viewBox="0 0 100 100"
-                  width="200"
-                  height="200"
-                >
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="green"
-                    strokeWidth="2"
-                  />
-                </svg>
               </h1>
 
               <p className="lead fst-italic mb-4 text-center">
@@ -134,20 +126,6 @@ const AuthPage = () => {
                     }}
                   >
                     Se déconnecter
-                    <svg className="arrow-sketch" width="80" height="40">
-                      <path
-                        d="M5,20 Q30,5 60,25 T80,20"
-                        stroke="black"
-                        fill="transparent"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M70,15 L80,20 L75,30"
-                        stroke="black"
-                        fill="transparent"
-                        strokeWidth="2"
-                      />
-                    </svg>
                   </button>
                 </div>
               </div>
@@ -172,21 +150,6 @@ const AuthPage = () => {
             <div className="page-header">
               <h1 className="display-4 position-relative mb-4 text-center">
                 Amphi-Bien
-                <svg
-                  className="red-circle"
-                  viewBox="0 0 100 100"
-                  width="200"
-                  height="200"
-                >
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="red"
-                    strokeWidth="2"
-                  />
-                </svg>
               </h1>
               <p className="lead fst-italic mb-4 text-center">
                 Découvre les amphis les plus chauds de ta région
@@ -218,14 +181,7 @@ const AuthPage = () => {
                         onClick={() => setActiveTab('signup')}
                       >
                         Inscription
-                        {activeTab === 'signup' && (
-                          <span
-                            className="crossed-text position-absolute"
-                            style={{ right: '-60px', top: '-10px' }}
-                          >
-                            S&apos;inscrire
-                          </span>
-                        )}
+                        {activeTab === 'signup'}
                       </button>
                     </div>
 
@@ -301,14 +257,8 @@ const AuthPage = () => {
                         <div className="position-relative mb-3">
                           <Label name="password" className="form-label">
                             Mot de passe
-                            <span
-                              className="crossed-text position-absolute"
-                              style={{ right: '-60px', top: '-5px' }}
-                            >
-                              12345
-                            </span>
                           </Label>
-                          <TextField
+                          <PasswordField
                             name="password"
                             className="form-control"
                             validation={{
@@ -316,6 +266,16 @@ const AuthPage = () => {
                             }}
                           />
                           <FieldError name="password" className="text-danger" />
+                          <span
+                            className="crossed-text red-handwritten-text position-absolute"
+                            style={{
+                              right: '-130px',
+                              top: '20px',
+                              fontSize: '1.3rem',
+                            }}
+                          >
+                            12345
+                          </span>
                         </div>
 
                         <Submit
@@ -365,7 +325,7 @@ const AuthPage = () => {
                           <Label name="password" className="form-label">
                             Mot de passe
                           </Label>
-                          <TextField
+                          <PasswordField
                             name="password"
                             className="form-control"
                             validation={{
@@ -387,20 +347,6 @@ const AuthPage = () => {
                           {loading
                             ? 'Création du compte...'
                             : 'Créer un compte'}
-                          <svg className="arrow-sketch" width="80" height="40">
-                            <path
-                              d="M5,20 Q30,5 60,25 T80,20"
-                              stroke="black"
-                              fill="transparent"
-                              strokeWidth="2"
-                            />
-                            <path
-                              d="M70,15 L80,20 L75,30"
-                              stroke="black"
-                              fill="transparent"
-                              strokeWidth="2"
-                            />
-                          </svg>
                         </Submit>
                       </Form>
                     )}
@@ -433,7 +379,7 @@ const AuthPage = () => {
               </div>
             </div>
 
-            <span className="draft-mark position-absolute">DRAFT</span>
+            <span className="grade-mark position-absolute">DRAFT</span>
             <div className="page-number">
               <span>1</span>
             </div>

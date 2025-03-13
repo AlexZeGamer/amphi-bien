@@ -220,9 +220,8 @@
 }
 
 /* Elements for crossed text, red circle and other visual effects */
-.crossed-text {
+.red-handwritten-text {
   font-family: 'Mali', cursive;
-  text-decoration: line-through;
   color: #d63031;
   font-size: 0.8em;
   top: -5px;
@@ -230,13 +229,8 @@
   transform: rotate(8deg);
 }
 
-.red-circle {
-  position: absolute;
-  top: -80px;
-  right: -60px;
-  z-index: 1;
-  opacity: 0.8;
-  transform: rotate(15deg);
+.crossed-text {
+  text-decoration: line-through;
 }
 
 .underline-sketch {

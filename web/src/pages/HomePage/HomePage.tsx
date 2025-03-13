@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import { Link, routes } from '@redwoodjs/router'
-import { Meta, Metadata, MetaTags } from '@redwoodjs/web'
+import { Metadata } from '@redwoodjs/web'
 import './HomePage.css'
 
 const HomePage = () => {
@@ -60,7 +60,7 @@ const HomePage = () => {
             <div className="page-header">
               <h1 className="display-1 position-relative title-main text-center">
                 Amphi-Bien
-                <span className="crossed-text position-absolute">
+                <span className="crossed-text red-handwritten-text position-absolute">
                   Amphi-nul
                 </span>
               </h1>
@@ -82,10 +82,10 @@ const HomePage = () => {
                 >
                   <source src="/videos/landing-video.mp4" type="video/mp4" />
                   <div className="video-fallback">
-                    <p>Votre navigateur ne supporte pas la lecture vidéo</p>
-                    <p className="handwritten-note">
-                      Illustration d&apos;un amphithéâtre
-                    </p>
+                    <img
+                      src="/images/landing-video-thumbnail.jpg"
+                      alt="AmphiBien"
+                    />
                   </div>
                 </video>
               </div>
