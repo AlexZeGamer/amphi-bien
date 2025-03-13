@@ -20,13 +20,6 @@ const GoogleMapsLayer = () => {
   const map = useMap()
 
   useEffect(() => {
-    console.log('Google Maps layer effect')
-    console.log('Google Maps API key:', process.env.MAPS_API_KEY)
-    console.log('Google Maps script loaded:', window.google)
-    console.log(
-      'Google Maps Leaflet plugin loaded:',
-      window.L.gridLayer.googleMutant
-    )
     if (!window.google || !window.L.gridLayer.googleMutant) return
 
     const googleLayer = window.L.gridLayer.googleMutant({

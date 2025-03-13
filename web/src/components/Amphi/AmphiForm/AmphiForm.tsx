@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { LatLngTuple } from 'leaflet'
+import { Icon, LatLngTuple } from 'leaflet'
 import { MapContainer, Marker, TileLayer, useMapEvents } from 'react-leaflet'
 import type { EditAmphiById, UpdateAmphiInput } from 'types/graphql'
 
@@ -48,14 +48,21 @@ const DELETE_IMAGE_MUTATION = gql`
   }
 `
 
+const userIcon = new Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+})
+
 const LocationMarker = ({ position, setPosition }) => {
   useMapEvents({
     click(e) {
       setPosition([e.latlng.lat, e.latlng.lng])
     },
   })
-
-  return position ? <Marker position={position} /> : null
+  return position ? <Marker position={position} icon={userIcon} /> : null
 }
 
 const AmphiForm = (props: AmphiFormProps) => {

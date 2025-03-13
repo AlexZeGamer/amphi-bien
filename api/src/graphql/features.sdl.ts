@@ -8,8 +8,8 @@ export const schema = gql`
   }
 
   type Query {
-    features: [Feature!]! @requireAuth
-    feature(id: Int!): Feature @requireAuth
+    features: [Feature!]! @skipAuth
+    feature(id: Int!): Feature @skipAuth
   }
 
   input ConnectFeatureInput {

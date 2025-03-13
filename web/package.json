@@ -15,6 +15,7 @@
     "@redwoodjs/forms": "8.4.0",
     "@redwoodjs/router": "8.4.0",
     "@redwoodjs/web": "8.4.0",
+    "@redwoodjs/web-server": "8.4.0",
     "doodle-icons": "1.1.0",
     "filestack-react": "^5.0.0",
     "firebase": "^10",

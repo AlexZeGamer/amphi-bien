@@ -7588,6 +7588,7 @@ __metadata:
   resolution: "api@workspace:api"
   dependencies:
     "@redwoodjs/api": "npm:8.4.0"
+    "@redwoodjs/api-server": "npm:8.4.0"
     "@redwoodjs/auth-firebase-api": "npm:8.4.0"
     "@redwoodjs/graphql-server": "npm:8.4.0"
     firebase-admin: "npm:12.6.0"
@@ -19718,6 +19719,7 @@ __metadata:
     "@redwoodjs/router": "npm:8.4.0"
     "@redwoodjs/vite": "npm:8.4.0"
     "@redwoodjs/web": "npm:8.4.0"
+    "@redwoodjs/web-server": "npm:8.4.0"
     "@types/leaflet": "npm:^1"
     "@types/react": "npm:^18.2.55"
     "@types/react-dom": "npm:^18.2.19"

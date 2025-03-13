@@ -8,14 +8,14 @@
 [web]
   title = "AmphiBien"
   port = 8910
-  apiUrl = "/.redwood/functions" # You can customize graphql and dbauth urls individually too: see https://redwoodjs.com/docs/app-configuration-redwood-toml#api-paths
+  apiUrl = "/api"
   includeEnvironmentVariables = [
     "FIREBASE_API_KEY",
     "FIREBASE_AUTH_DOMAIN",
     "MAPS_API_KEY"
   ]
 [api]
-  port = 8911
+  port = 8080
 [browser]
   open = false
 [notifications]

@@ -83,7 +83,7 @@ const HomePage = () => {
                   <source src="/videos/landing-video.mp4" type="video/mp4" />
                   <div className="video-fallback">
                     <img
-                      src="/images/landing-video-thumbnail.jpg"
+                      src="/videos/landing-video-thumbnail.jpg"
                       alt="AmphiBien"
                     />
                   </div>

@@ -24,3 +24,5 @@ api/src/lib/generateGraphiQLHeader.*
 !.yarn/versions
 secrets/*
 !secrets/.gitkeep
+
+postgres
